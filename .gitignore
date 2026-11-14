@@ -1,0 +1,9 @@
+.superpowers/
+node_modules/
+/*.png
+/*.jpg
+/*.pdf
+/*.zip
+/*.xlsx
+/*.txt
+Multi-Asset Recommendation System/
