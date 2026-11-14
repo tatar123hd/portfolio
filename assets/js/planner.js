@@ -3,7 +3,7 @@ import { SAMPLE } from './data/planner-sample.js';
 import { addDays, daysBetween, fmtShort } from './lib/dates.js';
 import { moveRange, resizeRange } from './lib/range.js';
 import { findClashes, clashSentence } from './lib/clash.js';
-import { generateSessions } from './lib/sessions.js';
+import { generateSessions, clipSessions } from './lib/sessions.js';
 import { loadState, saveState } from './lib/store.js';
 import { bookableItems } from './lib/planner-model.js';
 import { renderTimeline, RANGE } from './ui/timeline.js';
@@ -102,9 +102,12 @@ function edit(id) {
   });
 }
 
+let focusToggle = null;
 function toggle(id) {
   if (view.expanded.has(id)) view.expanded.delete(id); else view.expanded.add(id);
+  focusToggle = id;
   render();
+  focusToggle = null;
 }
 
 function renderClashes(clashes) {
@@ -142,6 +145,7 @@ function render() {
     clashIds: new Set(clashes.flatMap((c) => [c.a, c.b])),
     clashPeople: new Set(clashes.map((c) => c.person)),
     focusId,
+    focusToggle,
     on: { move, resize, edit, toggle },
   });
   focusId = null;
@@ -228,7 +232,7 @@ function sessionsFromForm() {
     count: $('a-count').value,
     lengthDays: $('a-length').value,
   });
-  return sessions.filter((s) => s.end <= RANGE.max);
+  return clipSessions(sessions, RANGE);
 }
 
 function updatePreview() {

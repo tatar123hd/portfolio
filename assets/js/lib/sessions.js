@@ -16,3 +16,6 @@ export function generateSessions({ start, everyWeeks, count, lengthDays }) {
   }
   return sessions;
 }
+
+// Keep only sessions that sit fully inside the timeline range.
+export const clipSessions = (sessions, range) => sessions.filter((s) => s.start >= range.min && s.end <= range.max);

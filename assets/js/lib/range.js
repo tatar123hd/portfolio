@@ -19,3 +19,14 @@ export function resizeRange(range, edge, deltaDays, bounds) {
   else e = Math.min(max, Math.max(s, e + deltaDays));
   return out(s, e);
 }
+
+// Pixel box for a bar. Short items get a minimum width so they can still be grabbed,
+// and lose their resize handles when there is no room for both handles and a grab area.
+const MIN_BAR = 24;
+const HANDLES_FROM = 40;
+export function barGeometry(range, min, dayW) {
+  const left = daysBetweenIso(min, range.start) * dayW;
+  const natural = (daysBetweenIso(range.start, range.end) + 1) * dayW;
+  return { left, width: Math.max(MIN_BAR, natural), handles: natural >= HANDLES_FROM };
+}
+const daysBetweenIso = (a, b) => toDay(b) - toDay(a);

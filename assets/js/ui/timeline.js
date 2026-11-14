@@ -1,5 +1,6 @@
 // Timeline renderer for the planner demo. Pure DOM; state changes go back through `on`.
 import { addDays, daysBetween, fmtShort } from '../lib/dates.js';
+import { barGeometry } from '../lib/range.js';
 
 export const RANGE = { min: '2026-11-01', max: '2027-04-30' };
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -58,12 +59,13 @@ function bar(item, state, ctx, extra = '') {
   if (label) b.style.setProperty('--tag', label.color);
   if (item.status === 'done') b.classList.add('is-done');
   if (ctx.clashIds.has(item.id)) b.classList.add('is-clash');
-  b.style.left = `${daysBetween(RANGE.min, item.start) * ctx.dayW}px`;
-  b.style.width = `${Math.max(1, daysBetween(item.start, item.end) + 1) * ctx.dayW}px`;
+  const box = barGeometry(item, RANGE.min, ctx.dayW);
+  b.style.left = `${box.left}px`;
+  b.style.width = `${box.width}px`;
   b.append(el('span', 'tl__bar-text', item.kind === 'course' ? (item.stage === 'plan' ? 'Plan' : 'Run') : item.name));
   b.setAttribute('aria-label', describe(item, state));
   b.title = `${item.name}: ${fmtShort(item.start)} to ${fmtShort(item.end)}`;
-  for (const edge of ['start', 'end']) {
+  for (const edge of box.handles ? ['start', 'end'] : []) {
     const h = el('span', `tl__h tl__h--${edge}`);
     h.dataset.edge = edge;
     h.setAttribute('aria-hidden', 'true');
@@ -143,6 +145,7 @@ function toggleLabel(item, ctx, level, hasChildren) {
   if (hasChildren) {
     const t = el('button', 'tl__toggle');
     t.type = 'button';
+    t.dataset.id = item.id;
     const open = ctx.view.expanded.has(item.id);
     t.setAttribute('aria-expanded', String(open));
     t.setAttribute('aria-label', `${open ? 'Collapse' : 'Expand'} ${item.name}`);
@@ -240,5 +243,6 @@ export function renderTimeline(root, state, view, ctxIn) {
   inner.append(body);
   root.append(inner);
 
+  if (ctx.focusToggle) root.querySelector(`.tl__toggle[data-id="${CSS.escape(ctx.focusToggle)}"]`)?.focus({ preventScroll: true });
   if (ctx.focusId) root.querySelector(`.tl__bar[data-id="${CSS.escape(ctx.focusId)}"]`)?.focus({ preventScroll: true });
 }

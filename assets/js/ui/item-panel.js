@@ -45,37 +45,37 @@ export function openPanel({ item, people, labels, bounds, onSave }) {
   const kind = item.kind === 'course' ? `Course, ${item.stage === 'plan' ? 'planning stage' : 'running stage'}` : item.kind[0].toUpperCase() + item.kind.slice(1);
   form.append(el('p', { class: 'sheet__kind' }, kind), el('h2', { id: 'panel-title' }, `Edit ${item.name}`));
 
-  const name = el('input', { id: 'f-name', type: 'text', value: item.name, autocomplete: 'off' });
-  const fName = field('f-name', 'Name', name);
-  const start = el('input', { id: 'f-start', type: 'date', value: item.start, min: bounds.min, max: bounds.max });
-  const fStart = field('f-start', 'Start', start);
-  const end = el('input', { id: 'f-end', type: 'date', value: item.end, min: bounds.min, max: bounds.max });
-  const fEnd = field('f-end', 'End', end);
+  const name = el('input', { id: 'ip-name', type: 'text', value: item.name, autocomplete: 'off' });
+  const fName = field('ip-name', 'Name', name);
+  const start = el('input', { id: 'ip-start', type: 'date', value: item.start, min: bounds.min, max: bounds.max });
+  const fStart = field('ip-start', 'Start', start);
+  const end = el('input', { id: 'ip-end', type: 'date', value: item.end, min: bounds.min, max: bounds.max });
+  const fEnd = field('ip-end', 'End', end);
   const dates = el('div', { class: 'field-row' });
   dates.append(fStart.wrap, fEnd.wrap);
 
-  const label = el('select', { id: 'f-label' });
+  const label = el('select', { id: 'ip-label' });
   label.append(el('option', { value: '' }, 'No label'));
   for (const l of labels) {
     const o = el('option', { value: l.id }, l.name);
     if (l.id === item.label) o.selected = true;
     label.append(o);
   }
-  const status = el('select', { id: 'f-status' });
+  const status = el('select', { id: 'ip-status' });
   for (const [v, t] of STATUSES) {
     const o = el('option', { value: v }, t);
     if (v === item.status) o.selected = true;
     status.append(o);
   }
   const selects = el('div', { class: 'field-row' });
-  selects.append(field('f-label', 'Label', label).wrap, field('f-status', 'Status', status).wrap);
+  selects.append(field('ip-label', 'Label', label).wrap, field('ip-status', 'Status', status).wrap);
 
   const actions = el('div', { class: 'sheet__actions' });
   const save = el('button', { type: 'submit', class: 'btn', value: 'save' }, 'Save changes');
   const cancel = el('button', { type: 'button', class: 'btn btn--quiet' }, 'Cancel');
   actions.append(save, cancel);
 
-  form.append(fName.wrap, dates, peoplePicker('f-people', people, item.people), selects, actions);
+  form.append(fName.wrap, dates, peoplePicker('ip-people', people, item.people), selects, actions);
   dlg.append(form);
   document.body.append(dlg);
 
@@ -101,9 +101,9 @@ export function openPanel({ item, people, labels, bounds, onSave }) {
       fEnd.err.textContent = 'The end date has to be on or after the start date.'; firstBad ||= end;
     }
     if (firstBad) { firstBad.focus(); return; }
-    const chosen = [...form.querySelectorAll('input[name="f-people"]:checked')].map((c) => c.value);
-    onSave({ name: n, start: start.value, end: end.value, people: chosen, label: label.value || undefined, status: status.value });
+    const chosen = [...form.querySelectorAll('input[name="ip-people"]:checked')].map((c) => c.value);
     close();
+    onSave({ name: n, start: start.value, end: end.value, people: chosen, label: label.value || undefined, status: status.value });
   });
 
   dlg.showModal();

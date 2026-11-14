@@ -6,7 +6,11 @@ let ctx = null;
 function audio() {
   const AC = window.AudioContext || window.webkitAudioContext;
   if (!AC) return null;
-  if (!ctx) ctx = new AC();
+  if (!ctx) {
+    // Play through the iPhone silent switch where the browser allows it.
+    try { if (navigator.audioSession) navigator.audioSession.type = 'playback'; } catch { /* not supported */ }
+    ctx = new AC();
+  }
   if (ctx.state === 'suspended') ctx.resume();
   return ctx;
 }
@@ -78,7 +82,8 @@ export function mountRanat(root) {
     const b = barAt(e.clientX, e.clientY);
     if (b && b !== last) { last = b; hit(b); }
   });
-  const stop = () => { down = false; last = null; };
+  const stop = () => { down = false; last = null; audio(); };
+  root.addEventListener('touchend', () => audio(), { passive: true });
   root.addEventListener('pointerup', stop);
   root.addEventListener('pointercancel', stop);
 
