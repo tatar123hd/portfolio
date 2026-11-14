@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>document.documentElement.classList.add('js')</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Training and project planner demo · Yossapat Charoensakkajorn</title>
+  <meta name="description" content="A browser version of the training and project planner Yossapat built in Power Apps, with made-up data. Drag, edit and filter courses and projects.">
+  <meta name="theme-color" content="#f6f3ec">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Training and project planner demo">
+  <meta property="og:description" content="One timeline for courses and projects, with double-booking checks. Made-up data.">
+  <meta property="og:image" content="/og.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/planner.css">
+  <script type="module" src="/assets/js/planner.js"></script>
+</head>
+<body class="planner-page">
+  <a class="skip" href="#timeline">Skip to the timeline</a>
+
+  <header class="top is-scrolled">
+    <div class="wrap top__row">
+      <a class="top__name" href="/">Yossapat Charoensakkajorn</a>
+      <a class="btn btn--small btn--quiet" href="/#work">Back to the portfolio</a>
+    </div>
+  </header>
+
+  <main class="wrap pl-main">
+    <h1 class="pl-title">Training and project planner</h1>
+    <p class="pl-intro">A browser version of a tool I built in Power Apps for my team at Bangkok Bank. The people, courses and projects here are made up. Drag a bar to move it, drag its ends to change the dates, or click it to edit. Your changes stay in this browser.</p>
+
+    <div class="pl-toolbar">
+      <div class="seg" role="group" aria-label="Group the timeline by">
+        <button type="button" class="seg__btn" data-group="item" aria-pressed="true">By project and course</button>
+        <button type="button" class="seg__btn" data-group="person" aria-pressed="false">By person</button>
+      </div>
+      <div class="pl-filters">
+        <label class="sel"><span>Person</span><select id="f-person"></select></label>
+        <label class="sel"><span>Area</span><select id="f-area"></select></label>
+        <label class="sel"><span>Course stage</span><select id="f-stage"></select></label>
+        <label class="sel"><span>Label</span><select id="f-label"></select></label>
+        <button type="button" class="btn btn--small btn--quiet" id="clear-filters">Clear filters</button>
+      </div>
+      <div class="pl-actions">
+        <button type="button" class="btn btn--small" id="add-course">Add a course</button>
+        <button type="button" class="btn btn--small btn--quiet" id="reset">Reset the demo</button>
+        <span class="pl-note" id="reset-note" aria-live="polite"></span>
+      </div>
+    </div>
+
+    <ul class="legend" id="legend" aria-label="Labels"></ul>
+    <div class="clashes" id="clashes" aria-live="polite"></div>
+    <p class="pl-note" id="save-note" aria-live="polite"></p>
+
+    <div class="tl" id="timeline" role="region" aria-label="Timeline, November 2026 to April 2027" tabindex="0"></div>
+  </main>
+
+  <dialog class="sheet" id="add-dialog" aria-labelledby="add-title">
+    <form class="sheet__form" id="add-form" novalidate>
+      <h2 id="add-title">Add a course</h2>
+      <div class="field"><label for="a-name">Course name</label><input id="a-name" type="text" autocomplete="off"></div>
+      <div class="field"><label for="a-area">Area</label><select id="a-area"></select></div>
+      <div id="a-people"></div>
+      <div class="field-row">
+        <div class="field"><label for="a-start">First session</label><input id="a-start" type="date"></div>
+        <div class="field"><label for="a-every">Every (weeks)</label><input id="a-every" type="number" min="1" max="12" value="1" inputmode="numeric"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label for="a-count">Number of sessions</label><input id="a-count" type="number" min="0" max="52" value="4" inputmode="numeric"></div>
+        <div class="field"><label for="a-length">Days per session</label><input id="a-length" type="number" min="1" max="14" value="1" inputmode="numeric"></div>
+      </div>
+      <p class="field__hint" id="a-summary" aria-live="polite"></p>
+      <ol class="preview" id="a-preview" aria-label="Session dates"></ol>
+      <div class="sheet__actions">
+        <button type="submit" class="btn" id="a-create">Create the sessions</button>
+        <button type="button" class="btn btn--quiet" id="a-cancel">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>

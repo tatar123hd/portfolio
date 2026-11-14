@@ -113,7 +113,7 @@ export function mountMiniPlanner(root) {
       const x0 = e.clientX;
       const start = it.week;
       let dragging = false;
-      bar.setPointerCapture(e.pointerId);
+      try { bar.setPointerCapture(e.pointerId); } catch { /* pointer already released */ }
       const move = (ev) => {
         const dx = ev.clientX - x0;
         if (!dragging && Math.abs(dx) < DRAG_THRESHOLD) return;

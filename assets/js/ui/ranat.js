@@ -70,7 +70,7 @@ export function mountRanat(root) {
     if (!b) return;
     down = true;
     last = b;
-    root.setPointerCapture(e.pointerId);
+    try { root.setPointerCapture(e.pointerId); } catch { /* pointer already released */ }
     hit(b);
   });
   root.addEventListener('pointermove', (e) => {
