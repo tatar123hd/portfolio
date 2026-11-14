@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>document.documentElement.classList.add('js')</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yossapat Charoensakkajorn</title>
+  <meta name="description" content="Finance graduate from Chulalongkorn, now in Learning & Development at Bangkok Bank. Tools I've built, competitions, teamwork across countries, and Thai music.">
+  <meta name="theme-color" content="#f6f3ec">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Yossapat Charoensakkajorn">
+  <meta property="og:description" content="Finance graduate at Bangkok Bank. Tools I've built, competitions, and Thai music.">
+  <meta property="og:image" content="/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="preload" as="image" href="/assets/img/profile-800.webp">
+  <script type="module" src="/assets/js/site.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top" id="top">
+    <div class="wrap top__row">
+      <a class="top__name" href="#main">Yossapat Charoensakkajorn</a>
+      <button class="top__toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav class="top__nav" id="nav" aria-label="Sections">
+        <a href="#work">Work</a>
+        <a href="#competitions">Competitions</a>
+        <a href="#teams">Teams</a>
+        <a href="#music">Music</a>
+        <a href="#writing">Writing</a>
+        <a href="#path">Experience</a>
+        <a class="btn btn--small" href="#contact">Contact me</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" data-enter>
+      <div class="wrap hero__grid">
+        <div class="hero__text">
+          <p class="hero__where">Bangkok · Learning &amp; Development Analyst, Bangkok Bank</p>
+          <h1 class="hero__name"><span>Yossapat</span> <span>Charoensakkajorn</span></h1>
+          <p class="hero__lede">I studied finance at Chulalongkorn University (GPAX 3.80) and spent a semester at Singapore Management University. Since September 2026 I've worked in Learning &amp; Development at Bangkok Bank.</p>
+          <p class="hero__lede">Outside the job description I build small tools: a planner my team uses, a weekly stock research routine, and a filter that found 40,000+ bot users at a crypto data company. I also play ranat ek, the Thai xylophone.</p>
+          <div class="hero__actions">
+            <a class="btn" href="#work">See my work</a>
+            <a class="btn btn--quiet" href="/assets/Yossapat-Charoensakkajorn-CV.pdf" download>Download my CV</a>
+          </div>
+        </div>
+        <picture class="hero__photo">
+          <img src="/assets/img/profile-800.webp" width="800" height="800" alt="Portrait of Yossapat in a dark suit on a rooftop, with the Bangkok skyline behind">
+        </picture>
+      </div>
+    </section>
+
+    <section class="sec" id="work" aria-labelledby="work-h">
+      <div class="wrap">
+        <h2 id="work-h">Tools I've built</h2>
+        <p class="sec__lede">Two of these you can use right here. Both run in your browser with no account.</p>
+
+        <article class="tool">
+          <div class="tool__text">
+            <h3>Training and project planner for my team at Bangkok Bank</h3>
+            <p>Our team runs courses and projects side by side, and people kept getting booked twice. I built a Power Apps tool that puts every course and project on one timeline and flags anyone who is booked for two things at once.</p>
+            <p>This small version uses made-up names. Drag Ton's leadership course into week 2 to see the warning.</p>
+            <a class="link" href="/planner">Open the full planner demo</a>
+          </div>
+          <div class="panel mini" id="mini-planner" aria-label="Small planner demo with three people over twelve weeks">
+            <p class="mini__fallback">The planner demo needs JavaScript.</p>
+          </div>
+        </article>
+
+        <article class="tool">
+          <div class="tool__text">
+            <h3>Monday research log</h3>
+            <p>A personal project since August 2026. Every Monday a script runs Claude Code: it looks up current prices for five assets, writes the case for and against each one, and records a call with an exit level in a spreadsheet. I read it and make my own decisions.</p>
+            <p>Five weeks are logged so far. None of the calls have been scored yet, so this shows the reasoning, with no claim about returns.</p>
+          </div>
+          <div class="panel log" id="research-log" aria-label="Research calls by week">
+            <p class="mini__fallback">The research log needs JavaScript.</p>
+          </div>
+        </article>
+
+        <article class="tool tool--plain">
+          <div class="tool__text">
+            <h3>Bot detection at Tokenomist</h3>
+            <p>During my internship (January to April 2026) I built a model in Mixpanel that used session patterns and navigation sequences to separate scripted traffic from real users. It flagged 40,000+ bot users in one quarter and made the product analytics more accurate.</p>
+          </div>
+          <div class="tool__text">
+            <p>I also ran the promotion for the company's 2025 annual report: 6,000+ impressions on X, 1,600+ report visits and 100+ downloads in the first month. And I wrote the product documentation for more than ten feature tabs.</p>
+            <ul class="links">
+              <li><a class="link" href="https://tokenomist.ai/reports/tokenomist-annual-report-2025" rel="noopener" target="_blank">Read the annual report</a></li>
+              <li><a class="link" href="https://docs.tokenomist.ai/overview" rel="noopener" target="_blank">Read the product docs</a></li>
+              <li><a class="link" href="https://www.linkedin.com/feed/update/urn:li:activity:7465673466986393600/" rel="noopener" target="_blank">Read my post about the internship</a></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="sec" id="competitions" aria-labelledby="comp-h">
+      <div class="wrap">
+        <h2 id="comp-h">Competitions and awards</h2>
+        <p class="sec__lede">Each of these ended with a panel of judges or senior reviewers asking where the numbers came from.</p>
+        <div class="comps">
+          <article class="comp">
+            <div class="comp__photo"><img src="/assets/img/set-camp-800.webp" srcset="/assets/img/set-camp-800.webp 800w, /assets/img/set-camp-1600.webp 1600w" sizes="(min-width: 900px) 40vw, 92vw" width="800" height="533" loading="lazy" alt="The winning team on stage at the SET Exclusive Financial Career Camp 2026, holding the first prize board"></div>
+            <h3>First place, SET Exclusive Financial Career Camp 2026</h3>
+            <p>Venture capital track, June 2026. My team played the analysts at a corporate VC and defended a THB 2,000M investment memo: convertible preferred shares to fund three regional acquisitions, modelled at a 25.9% IRR and a 3.17x MOIC.</p>
+            <a class="link" href="https://www.linkedin.com/feed/update/urn:li:activity:7475438314238615552/" rel="noopener" target="_blank">Read how we built the case</a>
+          </article>
+          <article class="comp">
+            <div class="comp__photo"><img src="/assets/img/aia-800.webp" srcset="/assets/img/aia-800.webp 800w, /assets/img/aia-1600.webp 1477w" sizes="(min-width: 900px) 40vw, 92vw" width="800" height="600" loading="lazy" alt="Five interns holding certificates and a 1st Runner Up board at the AIA Thailand Internship Program"></div>
+            <h3>First runner-up, AIA Thailand Internship Program 2025</h3>
+            <p>Three recommendations for getting Gen Z sales agents more active, built from First Year Premium sales data and presented against intern teams from across the company.</p>
+          </article>
+          <article class="comp">
+            <div class="comp__photo"><img src="/assets/img/anyai-800.webp" srcset="/assets/img/anyai-800.webp 800w, /assets/img/anyai-1600.webp 1280w" sizes="(min-width: 900px) 40vw, 92vw" width="800" height="450" loading="lazy" alt="The ANY AI Thailand team in suits in front of the Thammasat Startup The Next Gen 2025 backdrop"></div>
+            <h3>Finalist, Thammasat Startup The Next Gen 2025 and Learn Lab 2025</h3>
+            <p>I co-founded ANY AI Thailand in January 2025. Our product, ANYCALL, was an AI call centre that answered calls for Thai clinics, hotels and shops in Thai, English and Chinese. I built the investor deck, the financials and the go-to-market plan. The company closed in April 2026.</p>
+          </article>
+          <article class="comp comp--text">
+            <h3>Finalist, ACCA FinHack 2025</h3>
+            <p>An accounting and sustainability case, solved in July 2025 with a team from several ASEAN countries.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="teams" aria-labelledby="teams-h">
+      <div class="wrap split">
+        <div>
+          <h2 id="teams-h">Work with other schools and countries</h2>
+          <ul class="facts">
+            <li>Co-led a study of stablecoins with the RMIT Vietnam FinTech Club: two universities, two languages and two sets of regulators. <a class="link" href="https://www.linkedin.com/feed/update/urn:li:activity:7474745247428923392/" rel="noopener" target="_blank">Read the study post</a></li>
+            <li>Spent January to May 2025 on exchange at Singapore Management University, then a summer of masterclasses at NUS Business School in 2026.</li>
+            <li>In my first month at Bangkok Bank, helped run the final pitch round of the Tech Adoption Challenge for 60+ teams, then summarised every idea so the sponsoring board could compare them.</li>
+            <li>Gave three workshops on crypto investing basics for the Chulalongkorn Blockchain Society, designed posts for the Quantitative Computational Finance Club, and organised town halls for Thinc.</li>
+          </ul>
+        </div>
+        <div class="split__photo"><img src="/assets/img/cubs-800.webp" srcset="/assets/img/cubs-800.webp 800w, /assets/img/cubs-1600.webp 1477w" sizes="(min-width: 900px) 45vw, 92vw" width="800" height="600" loading="lazy" alt="Members of the Chulalongkorn Blockchain Society research team at a welcome session in the CU Innovation Hub"></div>
+      </div>
+    </section>
+
+    <section class="sec sec--music" id="music" aria-labelledby="music-h">
+      <div class="music__photo"><img src="/assets/img/petra-1600.webp" srcset="/assets/img/petra-800.webp 800w, /assets/img/petra-1600.webp 1432w" sizes="100vw" width="1432" height="594" loading="lazy" alt="Petra Band in blue polo shirts with dancers in front of a full concert hall, the audience making heart shapes"></div>
+      <div class="wrap split split--music">
+        <div>
+          <h2 id="music-h">Music</h2>
+          <p>I've played ranat ek, the Thai xylophone, and the Thai flute since primary school, and the erhu for the last two years.</p>
+          <p>As Head of Music at Petra Band I led rehearsals, arranged Thai melodies for the band and played at 30+ events. In the band's tenth-anniversary concert season I played 15 of the 16 shows and helped run all of them, from merchandise to backstage, lighting and registration.</p>
+          <a class="link" href="https://www.youtube.com/@petrabandofficial6304" rel="noopener" target="_blank">Watch Petra Band on YouTube</a>
+        </div>
+        <div class="ranat-wrap">
+          <p class="ranat-hint" id="ranat-hint">Play the ranat: click, tap or drag across the bars.</p>
+          <div class="ranat" id="ranat" role="group" aria-labelledby="ranat-hint"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="writing" aria-labelledby="writing-h">
+      <div class="wrap">
+        <h2 id="writing-h">Writing</h2>
+        <p class="sec__lede">I write on LinkedIn after events and projects. These four say the most about how I think.</p>
+        <div class="posts">
+          <a class="post" href="https://www.linkedin.com/feed/update/urn:li:activity:7518122069809737728/" rel="noopener" target="_blank">
+            <span class="post__date">October 2026</span>
+            <span class="post__title">Two IMF sessions on AI and first jobs</span>
+            <span class="post__body">If AI takes over junior work, firms train fewer juniors, and fewer people learn to tell when the output is wrong.</span>
+          </a>
+          <a class="post" href="https://www.linkedin.com/feed/update/urn:li:activity:7513775678878654464/" rel="noopener" target="_blank">
+            <span class="post__date">October 2026</span>
+            <span class="post__title">My first month at Bangkok Bank</span>
+            <span class="post__body">Sixty pitch teams described their problems in sixty ways. The job was finding one language a board could compare them in.</span>
+          </a>
+          <a class="post" href="https://www.linkedin.com/feed/update/urn:li:activity:7475438314238615552/" rel="noopener" target="_blank">
+            <span class="post__date">June 2026</span>
+            <span class="post__title">Winning the SET venture capital track</span>
+            <span class="post__body">The committee pressed on the assumptions under our 25.9% IRR, so we spent our time defending those, not the headline number.</span>
+          </a>
+          <a class="post" href="https://www.linkedin.com/feed/update/urn:li:activity:7482714005711527936/" rel="noopener" target="_blank">
+            <span class="post__date">July 2026</span>
+            <span class="post__title">A summer at NUS Business School</span>
+            <span class="post__body">A concert, a green building and a port turned out to be the same problem: most of the value sits in the parts that are easy to leave out.</span>
+          </a>
+        </div>
+        <h3 class="pub-h">Published</h3>
+        <ul class="facts facts--tight">
+          <li>Book chapter on retirement saving, written at Sasin School of Management, applying the MINDSPACE framework to why people under-save.</li>
+          <li>Stablecoins in Emerging Economies: Insights from Thailand and Vietnam. A 30-page joint study by the Chulalongkorn Blockchain Society and the RMIT Vietnam FinTech Club.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec" id="path" aria-labelledby="path-h">
+      <div class="wrap">
+        <h2 id="path-h">Experience and education</h2>
+        <div class="path">
+          <div class="path__col">
+            <span class="path__line" id="path-line" aria-hidden="true"></span>
+            <ol class="path__list">
+              <li><span class="path__when">Sep 2026 to now</span><span class="path__what">Learning &amp; Development Analyst, Bangkok Bank</span></li>
+              <li><span class="path__when">Jan to Apr 2026</span><span class="path__what">Product Specialist Intern, Tokenomist</span></li>
+              <li><span class="path__when">Jan 2025 to Apr 2026</span><span class="path__what">Co-founder, ANY AI Thailand (company since closed)</span></li>
+              <li><span class="path__when">Jun to Jul 2025</span><span class="path__what">Agency Strategy &amp; GA Management Intern, AIA Thailand</span></li>
+              <li><span class="path__when">Aug 2024 to May 2025</span><span class="path__what">Research Assistant Intern, Sasin School of Management</span></li>
+              <li><span class="path__when">Aug 2024 to Apr 2026</span><span class="path__what">Head of Music, Petra Band</span></li>
+            </ol>
+          </div>
+          <div class="path__col path__col--side">
+            <h3>Education</h3>
+            <p>BBA, Financial Analysis &amp; Investment, Chulalongkorn University, 2022 to 2026. GPAX 3.80.</p>
+            <p>Exchange semester, Singapore Management University, January to May 2025.</p>
+            <h3>Certificates</h3>
+            <ul class="certs">
+              <li><a class="link" href="https://coursera.org/verify/professional-cert/0L8WKS2UNC3L" rel="noopener" target="_blank">Google Advanced Data Analytics</a></li>
+              <li><a class="link" href="https://coursera.org/verify/professional-cert/7R07JRQ7HA7B" rel="noopener" target="_blank">Google Project Management</a></li>
+              <li>Claude Code 101, Anthropic</li>
+              <li>Introduction to Python</li>
+            </ul>
+            <h3>Languages</h3>
+            <p>Thai (native), English (fluent), Chinese (beginner).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot" id="contact">
+    <div class="wrap">
+      <h2 class="foot__h">Contact</h2>
+      <p class="foot__lede">Email is the fastest way to reach me.</p>
+      <div class="foot__mail">
+        <a class="foot__addr" id="email" href="mailto:yossapat.charoensakkajorn@gmail.com">yossapat.charoensakkajorn@gmail.com</a>
+        <button class="btn btn--light" id="copy-email" type="button" data-copy="yossapat.charoensakkajorn@gmail.com">Copy email</button>
+      </div>
+      <ul class="foot__links">
+        <li><a class="link" href="https://www.linkedin.com/in/yossapat-charoensakkajorn-a5000b29a/" rel="noopener" target="_blank">Find me on LinkedIn</a></li>
+        <li><a class="link" href="/assets/Yossapat-Charoensakkajorn-CV.pdf" download>Download my CV</a></li>
+      </ul>
+      <p class="foot__legal">© 2026 Yossapat Charoensakkajorn</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -8,3 +8,5 @@ node_modules/
 /*.txt
 Multi-Asset Recommendation System/
 !/og.jpg
+.taste-skill/
+shots/
