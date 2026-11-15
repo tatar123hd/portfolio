@@ -14,7 +14,10 @@ const SOURCES = {
   'set-camp': 'SET camp win.png',
   aia: 'AIA runner-up award.png',
   anyai: 'ANY AI pitches.jpg',
-  cubs: 'Blockchain Society workshop.jpg',
+  'teams-stablecoin': 'Work with other - study of stablecoins.png',
+  'teams-smu': 'Work with other - Singapore Management University.png',
+  'teams-bbl': 'Work with other - Bangkok Bank.jpg',
+  'teams-workshops': 'Work with other - three workshops.jpg',
   petra: 'Petra Band concerts.png',
 };
 const WIDTHS = [800, 1600];

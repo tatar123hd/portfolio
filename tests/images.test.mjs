@@ -8,7 +8,7 @@ const sharp = require('sharp');
 const root = new URL('../', import.meta.url);
 const at = (p) => new URL(p, root);
 
-const SLUGS = ['profile', 'set-camp', 'aia', 'anyai', 'cubs', 'petra'];
+const SLUGS = ['profile', 'set-camp', 'aia', 'anyai', 'petra', 'teams-stablecoin', 'teams-smu', 'teams-bbl', 'teams-workshops'];
 
 for (const slug of SLUGS) {
   test(`${slug}: both sizes exist, are not upscaled past the target, and carry no EXIF`, async () => {

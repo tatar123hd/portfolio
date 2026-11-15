@@ -306,3 +306,42 @@ a { color: inherit; }
   .mp__weeks span { padding-left: 2px; }
   .mp__bar { font-size: 11px; padding: 0 6px; }
 }
+
+/* Teams slideshow */
+.slides { min-width: 0; }
+.slides__frame { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--radius); background: var(--line-2); touch-action: pan-y; }
+.slides__item { position: absolute; inset: 0; margin: 0; opacity: 0; visibility: hidden; transition: opacity 700ms var(--ease), visibility 0s linear 700ms; }
+.slides__item.is-active { opacity: 1; visibility: visible; transition: opacity 700ms var(--ease), visibility 0s; }
+.slides__img { width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease); }
+.slides__img--contain { object-fit: contain; background: #1c4ea2; }
+.slides__img--stage { object-position: 50% 64%; }
+.slides__frame:hover .slides__img:not(.slides__img--contain) { transform: scale(1.03); }
+.slides__bar { display: flex; align-items: center; gap: 6px; margin-top: 12px; }
+.slides__btn {
+  display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--paper-2); color: var(--ink); cursor: pointer; transition: border-color var(--t-fast), transform var(--t-fast) var(--ease);
+}
+.slides__btn:hover { border-color: var(--ink); transform: translateY(-1px); }
+.slides__btn:active { transform: scale(.96); }
+.slides__dots { display: flex; }
+.slides__dot { position: relative; width: 30px; height: 44px; padding: 0; border: 0; background: none; cursor: pointer; }
+.slides__dot::before, .slides__dot::after { content: ''; position: absolute; top: 50%; left: 50%; height: 6px; margin-top: -3px; border-radius: 3px; }
+.slides__dot::before { width: 6px; margin-left: -3px; background: var(--line); transition: width var(--t-mid) var(--ease), margin var(--t-mid) var(--ease), background var(--t-fast); }
+.slides__dot:hover::before { background: var(--mute); }
+.slides__dot[aria-current="true"]::before { width: 22px; margin-left: -11px; background: var(--line); }
+.slides__dot[aria-current="true"]::after { width: 22px; margin-left: -11px; background: var(--ink); transform-origin: left; }
+.slides.is-playing .slides__dot[aria-current="true"].is-ticking::after { animation: slide-tick var(--slide-ms, 5000ms) linear forwards; }
+@keyframes slide-tick { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.slides__pause {
+  margin-left: auto; min-height: 44px; padding: 0 16px; border: 1px solid var(--line); border-radius: 999px; background: none;
+  font: 500 13px var(--sans); color: var(--ink); cursor: pointer; transition: border-color var(--t-fast);
+}
+.slides__pause:hover { border-color: var(--ink); }
+.facts--slides li { position: relative; padding-left: 16px; cursor: pointer; transition: color var(--t-fast); }
+.facts--slides li::before { content: ''; position: absolute; left: 0; top: 18px; bottom: 18px; width: 2px; border-radius: 2px; background: transparent; transition: background var(--t-mid); }
+.facts--slides li:hover { color: var(--ink); }
+.facts--slides li.is-current { color: var(--ink); }
+.facts--slides li.is-current::before { background: var(--rust); }
+@media (prefers-reduced-motion: reduce) {
+  .slides__frame:hover .slides__img:not(.slides__img--contain) { transform: none; }
+}

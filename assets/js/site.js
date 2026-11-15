@@ -3,6 +3,7 @@ import { initMotion } from './ui/motion.js';
 import { mountMiniPlanner } from './ui/mini-planner.js';
 import { mountResearchLog } from './ui/research-log.js';
 import { mountRanat } from './ui/ranat.js';
+import { mountSlideshow } from './ui/slideshow.js';
 import { RESEARCH_LOG } from './data/research-log.js';
 
 function start() {
@@ -10,6 +11,7 @@ function start() {
   mountMiniPlanner(document.getElementById('mini-planner'));
   mountResearchLog(document.getElementById('research-log'), RESEARCH_LOG);
   mountRanat(document.getElementById('ranat'));
+  mountSlideshow(document.getElementById('teams-slides'), { list: document.querySelector('#teams .facts--slides') });
 }
 
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
